@@ -1,8 +1,13 @@
 (function() {
 
   var scales = {
+    "major": {0: '1', 2: '2', 4: '3', 5: '4', 7: '5', 9: '6', 11: '7'},
+    "natural minor": {0: '1', 2: '2', 3: '3', 5: '4', 7: '5', 8: '6', 10: '7'},
+    "dorian": {0: '1', 2: '2', 3: '3', 5: '4', 7: '5', 9: '6', 10: '7'},
+    "minor pentatonic": {0: '1', 3: '3', 5: '4', 7: '5', 10: '7'},
+    "major pentatonic": {0: '1', 4: '3', 5: '4', 7: '5', 9: '6'},
     "blues": {0: '1', 3: 'm', 4: '3', 5: '4', 6: 'b', 7: '5', 10: '7'},
-    "mixolydic": {0: '1', 2: '2', 3: 'm', 4: '3', 5: '4', 6: 'b', 7: '5', 9: '6', 10: '7'}
+    "mixolydian": {0: '1', 2: '2', 4: '3', 5: '4', 7: '5', 9: '6', 10: '7'}
   };
 
   var stringOffsets = [4, -1, -5, 2, -3, 4];
@@ -38,7 +43,8 @@
       
       var heading = $($("tr", table)[0]);
       heading.empty();
-      heading.append("<th colspan='" + frets + "'>" + scaleName + "</th>");
+      var headingText = scaleName + " (next: " + progression[(currentChordIndex + 1) % progression.length][0] + ")";
+      heading.append("<th colspan='" + frets + "'>" + headingText + "</th>");
 
       for (var s = 0; s < 6; s++) {
         var row = $($("tr", table)[s+1]);
