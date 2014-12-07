@@ -3,13 +3,17 @@ table {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
-    margin-top: calc((100vh - 6*4vw)/2);
+    margin-top: calc((100vh - 6*4vw - 8vw)/2);
 }
 
 td {
     text-align: center;
     border: 1px solid #AAA;
     height: 5vw;
+}
+
+th {
+    height: 8vw;
 }
 
 tr:last-child td {

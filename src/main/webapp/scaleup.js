@@ -8,22 +8,25 @@
   var stringOffsets = [4, -1, -5, 2, -3, 4];
 
   var noteOffsets = {
-    "c": 0,
-    "c#": 1,
-    "d": 2,
-    "d#": 3,
-    "e": 4,
-    "f": 5,
-    "f#": 6,
-    "g": 7,
-    "g#": 8,
-    "a": 9,
-    "a#": 10,
-    "b": 11
+    "C": 0,
+    "C#": 1,
+    "D": 2,
+    "D#": 3,
+    "E": 4,
+    "F": 5,
+    "F#": 6,
+    "G": 7,
+    "G#": 8,
+    "A": 9,
+    "A#": 10,
+    "B": 11
   };
 
   window.initScaleup = function(tableId, frets, progression) {
     var table = $("#" + tableId);
+    for (var i = 0; i < 7; i++) {
+      table.append("<tr></tr>");
+    }
 
     var currentChordIndex = 0;
 
@@ -32,9 +35,13 @@
       table.css("color", progression[currentChordIndex][1]);
       var root = noteOffsets[scaleName.split(" ")[0]];
       var scale = scales[scaleName.split(" ")[1]];
+      
+      var heading = $($("tr", table)[0]);
+      heading.empty();
+      heading.append("<th colspan='" + frets + "'>" + scaleName + "</th>");
 
       for (var s = 0; s < 6; s++) {
-        var row = $($("tr", table)[s]);
+        var row = $($("tr", table)[s+1]);
         row.empty();
         var sOffset = stringOffsets[s];
         for (var f = 0; f < frets; f++) {
