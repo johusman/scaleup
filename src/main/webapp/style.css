@@ -33,6 +33,6 @@ td div {
     text-shadow: 0 0 10px white, 0 0 30px white, 0 0 20px white;
 }
 
-tr:not(:last-child) td:nth-child(4), tr:not(:last-child) td:nth-child(6), tr:not(:last-child) td:nth-child(8) {
-    background-image: radial-gradient(1vw, #FFF, #CCC, white, white);
+tr:not(:last-child) td:nth-child(4), tr:not(:last-child) td:nth-child(6), tr:not(:last-child) td:nth-child(8), tr:not(:last-child) td:nth-child(10) {
+    background-image: radial-gradient(1.5vw, #FFF, #DDD, white, white);
 }
