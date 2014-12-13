@@ -43,8 +43,20 @@
       
       var heading = $($("tr", table)[0]);
       heading.empty();
-      var headingText = scaleName + " (next: " + progression[(currentChordIndex + 1) % progression.length][0] + ")";
-      heading.append("<th colspan='" + frets + "'>" + headingText + "</th>");
+      var headingText = "";
+      for (var c = 0; c < progression.length; c++) {
+        if (c !== 0) {
+          headingText += " : ";
+        }
+        if (currentChordIndex === c) {
+          headingText += "<span>";
+        }
+        headingText += progression[c][0];
+        if (currentChordIndex === c) {
+          headingText += "</span>";
+        }
+      }
+      heading.append("<th colspan='" + frets + "'>[" + headingText + "]</th>");
 
       for (var s = 0; s < 6; s++) {
         var row = $($("tr", table)[s+1]);

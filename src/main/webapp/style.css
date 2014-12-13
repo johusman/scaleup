@@ -14,6 +14,12 @@ td {
 
 th {
     height: 8vw;
+    font-size: 3vw;
+    font-weight: normal;
+}
+
+th span {
+    font-weight: bold;
 }
 
 tr:last-child td {
