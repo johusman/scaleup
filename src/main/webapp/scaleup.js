@@ -65,7 +65,7 @@
         for (var f = 0; f < frets; f++) {
           var note = ((sOffset - root + f) % 12 + 12) % 12;
           if (scale[note]) {
-            row.append("<td><div>" + scale[note] + "</div></td>");
+            row.append("<td><div><span class='note" + scale[note] + "'>" + scale[note] + "</span></div></td>");
           } else {
             row.append("<td></td>");
           }

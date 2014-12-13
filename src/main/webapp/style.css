@@ -42,3 +42,18 @@ td div {
 tr:not(:last-child) td:nth-child(4), tr:not(:last-child) td:nth-child(6), tr:not(:last-child) td:nth-child(8), tr:not(:last-child) td:nth-child(10) {
     background-image: radial-gradient(1.5vw, #FFF, #DDD, white, white);
 }
+
+td div span {
+    display: inline-block;
+    width: 1em;
+}
+
+td div span.note1 {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
+}
+
+td div span.note5 {
+    border: 1px solid currentColor;
+    border-radius: 50%;
+}
