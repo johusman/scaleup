@@ -9,13 +9,13 @@
         </table>
         <script>
             initScaleup("fretboard", 12, [
-                ["A blues", "red"],
-                ["D blues", "green"],
-                ["A blues", "red"],
-                ["E blues", "blue"],
-                ["D blues", "green"],
-                ["A blues", "red"],
-                ["E blues", "blue"]
+                { scale: "A blues", color: "red"},
+                { scale: "D blues", color: "green", shadow: "A blues"},
+                { scale: "A blues", color: "red"},
+                { scale: "E blues", color: "blue", shadow: "A blues"},
+                { scale: "D blues", color: "green", shadow: "A blues"},
+                { scale: "A blues", color: "red"},
+                { scale: "E blues", color: "blue", shadow: "A blues"}
                 ]);          
         </script>
     </body>

@@ -36,10 +36,18 @@
     var currentChordIndex = 0;
 
     var showScale = function() {
-      var scaleName = progression[currentChordIndex][0];
-      table.css("color", progression[currentChordIndex][1]);
+      table.css("color", progression[currentChordIndex].color);
+      var scaleName = progression[currentChordIndex].scale;
       var root = noteOffsets[scaleName.split(" ")[0]];
       var scale = scales[scaleName.split(" ")[1]];
+
+      var shadowScale = null;
+      var shadowRoot = null;
+      if (progression[currentChordIndex].shadow) {
+        var shadowName = progression[currentChordIndex].shadow;
+        shadowRoot = noteOffsets[shadowName.split(" ")[0]];
+        shadowScale = scales[shadowName.split(" ")[1]];
+      }
       
       var heading = $($("tr", table)[0]);
       heading.empty();
@@ -51,7 +59,7 @@
         if (currentChordIndex === c) {
           headingText += "<span>";
         }
-        headingText += progression[c][0];
+        headingText += progression[c].scale;
         if (currentChordIndex === c) {
           headingText += "</span>";
         }
@@ -64,8 +72,12 @@
         var sOffset = stringOffsets[s];
         for (var f = 0; f < frets; f++) {
           var note = ((sOffset - root + f) % 12 + 12) % 12;
+          var shadowNote = shadowScale ? ((sOffset - shadowRoot + f) % 12 + 12) % 12 : null;
           if (scale[note]) {
-            row.append("<td><div><span class='note" + scale[note] + "'>" + scale[note] + "</span></div></td>");
+            var extraClass = shadowScale ? (shadowScale[shadowNote] ? " common" : "") : "";
+            row.append("<td><div><span class='note" + scale[note] + extraClass + "'>" + scale[note] + "</span></div></td>");
+          } else if (shadowScale && shadowScale[shadowNote]) {
+            row.append("<td><div><span class='shadow'>" + shadowScale[shadowNote] + "</span></div></td>");
           } else {
             row.append("<td></td>");
           }

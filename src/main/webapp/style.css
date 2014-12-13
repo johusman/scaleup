@@ -48,6 +48,16 @@ td div span {
     width: 1em;
 }
 
+td div span.shadow {
+    color: #CCC;
+    font-size: 80%;
+    padding-top: 8%;
+}
+
+td div span.common {
+    font-weight: bold;
+}
+
 td div span.note1 {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10%;
